@@ -69,28 +69,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculator</title>
-    <style>
-        body {
-            background-color: rgb(163, 159, 159);
-        }
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
 
+    <style>
+         
         .calc {
 
             margin: auto;
-            background-color: black;
+            /* background-color: black; */
             border: 2px solid whitesmoke;
-            width: 24%;
-            height: 630px;
             border-radius: 20px;
-            box-shadow: 10px 10px 40px;
+      
         }
 
         .maininput {
             background-color: black;
             border: 1px solid grey;
-            height: 125px;
-            width: 98.2%;
-            font-size: 80px;
             color: whitesmoke;
             font-weight: 00;
         }
@@ -151,7 +145,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             padding: 30px 35px;
             border-radius: 50px;
             font-weight: 500;
-            font-size: large;
+            font-size: 30px;
             background-color: yellow;
             
         }
@@ -160,47 +154,73 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             background-color: yellow;
             color: whitesmoke;
         }
+        .button-row {
+            width: 100%;
+        }
     </style>
 </head>
 
 <body>
-    <div class="calc">
+<section class="">
+<div class="container py-5 ">
+<div class="row d-flex justify-content-center align-items-center ">
+<div class="col-lg-6 col-md-4 col-xs-3">
+    <div class="card calc bg-dark" style="border-radius: 1rem;">
+    <div class="card-body">
+    
         <form action="" method="post">
-            <br>
-            <input type="text" class="maininput" name="input" value=""> <br> <br>
-            <input type="button" class="numbtn" name="num" value="7">
-            <input type="button" class="numbtn" name="num" value="8">
-            <input type="button" class="numbtn" name="num" value="9">
-            <input type="button" class="calbtn" name="op" value="+"> <br><br>
+            
+            <input type="text" class="maininput form-control form-control-lg" name="input" value=""> 
+             
+            <div class ='button-row'>
+
+                <input type="button" class="numbtn" name="num" value="7">
+                <input type="button" class="numbtn" name="num" value="8">
+                <input type="button" class="numbtn" name="num" value="9">
+                <input type="button" class="calbtn" name="op" value="+"> 
+                <input type="button" class="calbtn" name="op" value="-">
+            </div>
+            <div class ='button-row'>
             <input type="button" class="numbtn" name="num" value="4">
             <input type="button" class="numbtn" name="num" value="5">
             <input type="button" class="numbtn" name="num" value="6">
-            <input type="button" class="calbtn" name="op" value="-"><br><br>
+            <input type="button" class="calbtn" name="op" value="*">
+            <input type="button" class="calbtn" name="op" value="/">
+            </div>
             <input type="button" class="numbtn" name="num" value="1">
             <input type="button" class="numbtn" name="num" value="2">
             <input type="button" class="numbtn" name="num" value="3">
-            <input type="button" class="calbtn" name="op" value="*"><br><br>
+            <input type="button" class="bracketbtn" name="bracket" value="(">
+            <input type="button" class="bracketbtn" name="bracket" value=")">
+            <div class ='button-row'>
             <input type="button" class="c" name="num" value="c">
             <input type="button" class="numbtn" name="num" value="0">
             <input type="button" class="equal" name="equal" value="=">
-            <input type="button" class="calbtn" name="op" value="/">
-            <input type="button" class="bracketbtn" name="bracket" value="(">
-            <input type="button" class="bracketbtn" name="bracket" value=")">
-
-
-
+            </div>
         </form>
-
+    
+    </div>
+    </div>
+    </div>
+    <div class="col-lg-6 col-md-4 col-xs-3">
+   
+                    <div class="card" style="border-radius: 1rem;">
+                        <div class="card-body p-5">
         <div class="calc-history">
-    <h3>Calculation History</h3>
-    <ul id="historyList"></ul>
-</div>
+          <h3>Calculation History</h3>
+          <ul id="historyList"></ul>
+           </div>
 
-<a href="logout.php">Log out</a>
+            
 
 
     </div>
-
+    </div>
+    <a href="logout.php">Log out</a>
+    </div>
+    </div>
+    </div>
+    </section>
 
     <script src="calculator.js"></script>
 </body>
