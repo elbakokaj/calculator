@@ -57,6 +57,7 @@
             background-color: rgb(211, 140, 7);
             color: whitesmoke;
         }
+ 
 
         .c {
             padding: 30px 35px;
@@ -83,6 +84,19 @@
             background-color: green;
             color: whitesmoke;
         }
+        .bracketbtn {
+            padding: 30px 35px;
+            border-radius: 50px;
+            font-weight: 500;
+            font-size: large;
+            background-color: yellow;
+            
+        }
+
+        .bracketbtn:hover {
+            background-color: yellow;
+            color: whitesmoke;
+        }
     </style>
 </head>
 
@@ -107,9 +121,18 @@
             <input type="button" class="numbtn" name="num" value="0">
             <input type="button" class="equal" name="equal" value="=">
             <input type="button" class="calbtn" name="op" value="/">
+            <input type="button" class="bracketbtn" name="bracket" value="(">
+            <input type="button" class="bracketbtn" name="bracket" value=")">
+
 
 
         </form>
+
+        <div class="calc-history">
+    <h3>Calculation History</h3>
+    <ul id="historyList"></ul>
+</div>
+
     </div>
 
 

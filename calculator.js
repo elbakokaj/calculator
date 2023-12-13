@@ -22,15 +22,37 @@ class Calculator {
             .then(response => response.text())
             .then(result => {
                 document.querySelector('.maininput').value = result;
-                this.expression = result;
+                this.expression = '';
+                fetchHistory();
             })
             .catch(error => console.error('Error:', error));
     }
 }
 
-const calc = new Calculator();
+function fetchHistory() {
+    fetch('calculator.php?action=getHistory')
+        .then(response => response.json())
+        .then(history => {
+            console.log("History:", history);
+            updateHistoryDisplay(history);
+        })
+        .catch(error => console.error('Error:', error));
+}
 
-document.querySelectorAll('.numbtn, .calbtn').forEach(button => {
+
+function updateHistoryDisplay(history) {
+    const historyList = document.getElementById('historyList');
+    historyList.innerHTML = '';
+
+    history.forEach(item => {
+        const listItem = document.createElement('li');
+        listItem.textContent = `${item.expression} = ${item.result}`;
+        historyList.appendChild(listItem);
+    });
+}
+
+const calc = new Calculator();
+document.querySelectorAll('.numbtn, .calbtn, .bracketbtn').forEach(button => {
     button.addEventListener('click', (e) => {
         e.preventDefault();
         calc.input(button.value);
@@ -46,6 +68,11 @@ document.querySelector('.c').addEventListener('click', (e) => {
     e.preventDefault();
     calc.clear();
 });
+
+document.addEventListener('DOMContentLoaded', (event) => {
+    fetchHistory();
+});
+
 
 document.addEventListener('keydown', (e) => {
     e.preventDefault();
@@ -105,6 +132,10 @@ document.addEventListener('keydown', (e) => {
         case 'NumpadDivide':
             key = '/';
             break;
+
+        case 'NumpadDivide':
+            key = '/';
+            break;
         case 'NumpadEnter':
         case 'Enter':
             calc.calculate();
@@ -124,3 +155,5 @@ document.addEventListener('keydown', (e) => {
         calc.clear();
     }
 });
+
+
