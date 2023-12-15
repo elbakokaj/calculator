@@ -14,7 +14,7 @@ class Calculator {
     }
 
     calculate() {
-        fetch('calculator.php', {
+        fetch('../src/api/calculator.php', {
             method: 'POST',
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
             body: `expression=${encodeURIComponent(this.expression)}`
@@ -30,7 +30,7 @@ class Calculator {
 }
 
 function fetchHistory() {
-    fetch('calculator.php?action=getHistory')
+    fetch('../src/api/calculator.php?action=getHistory')
         .then(response => response.json())
         .then(history => {
             console.log("History:", history);

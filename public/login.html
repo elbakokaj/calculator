@@ -7,6 +7,8 @@
     <title>Document</title>
     <!-- <link rel="stylesheet" href="/assets/css/login.css"> -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <script src="../assets/login.js"></script>
+
 
 </head>
 
@@ -22,7 +24,7 @@
                                 <h2 class="fw-bold mb-2 text-uppercase">Login</h2>
                                 <p class="text-white-50 mb-5">Please enter your login and password!</p>
 
-                                <form action="login.php" method="post">
+                                <form id="loginForm" action="../src/api/login.php" method="post">
                                     <div class="form-outline form-white mb-4">
                                         <input type="text" id="typeUsernameX" name="username"
                                             class="form-control form-control-lg" />
